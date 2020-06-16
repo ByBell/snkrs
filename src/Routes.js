@@ -1,14 +1,21 @@
 import React, { lazy, Suspense } from 'react';
-import { connect, useSelector, useDispatch } from 'react-redux'
-import { Switch, Route, useLocation, withRouter, Redirect } from 'react-router-dom';
+// import { useSelector, useDispatch } from 'react-redux'
+import { Switch, Route, useLocation, withRouter, 
+  // Redirect 
+} from 'react-router-dom';
 
 import CircularProgress from '@material-ui/core/CircularProgress';
+
+import { Grid } from '@material-ui/core'
 
 import { ThemeProvider } from '@material-ui/styles';
 
 import MuiTheme from './theme';
 
+const LandingContainer = lazy(() => import('./components/landing'));
+
 const Routes = (props) => {
+  const location = useLocation()
   // const dispatch = useDispatch();
   // const auth = useSelector(store => store.auth)
 
@@ -16,20 +23,19 @@ const Routes = (props) => {
     <ThemeProvider theme={MuiTheme}>
         <Suspense
           fallback={
-            <div className="d-flex align-items-center vh-100 justify-content-center text-center font-weight-bold font-size-lg py-3">
-              <div className="w-50 mx-auto">
+            <Grid container justify="center" alignItems="center" style={{height: '100vh', width: '100vw'}}>
                 <CircularProgress
                   variant="indeterminate"
                   disableShrink
                   size={24}
                   thickness={4}
                   /> 
-              </div>
-            </div>
+            </Grid>
         }>
-            <div>
-                dsdsqd
-            </div>
+          <Switch location={location} key={location.pathname}>
+            <Route exact path={'/'} component={LandingContainer} />
+          </Switch>
+
         </Suspense>
     </ThemeProvider>
   );

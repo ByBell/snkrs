@@ -1,6 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Maax';
+  src: local('Maax'), url(./fonts/Maax.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Maax';
+    font-weight: 500;
+    src: local('Maax'), url(./fonts/Maax-Medium.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Maax';
+    font-weight: 'bold';
+    src: local('Maax'), url(./fonts/Maax-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Maax';
+  font-weight: 'bolder';
+  src: local('Maax'), url(./fonts/Maax-Black.ttf) format('truetype');
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Maax', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
