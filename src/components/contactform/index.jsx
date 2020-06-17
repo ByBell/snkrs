@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Stepper, Step, StepButton, Button, Typography, TextField, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
+import { Grid, Stepper, Step, StepButton, Button, Typography, TextField, FormControl, InputLabel, Select, MenuItem, Card, CardActionArea } from '@material-ui/core';
+
+import getNext15DaysTimeArray from '../../utils/date-time-slot-gen'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -8,6 +10,12 @@ const useStyles = makeStyles((theme) => ({
   },
   formMargin: {
     marginBottom: 20
+  },
+  CardActionArea: {
+    padding: 20
+  },
+  Card: {
+    margin: 10
   },
   button: {
     marginRight: theme.spacing(1),
@@ -68,7 +76,7 @@ function getStepContent(step, classes) {
                   <InputLabel id="sneaker-brand">Quelle est la marque de la paire ?</InputLabel>
                   <Select
                     labelId="sneaker-brand"
-                    // value={sneakerBrand}
+                    value={""}
                     // onChange={handleChange}
                   >
                     <MenuItem value={"adidas"}>Adidas</MenuItem>
@@ -82,7 +90,7 @@ function getStepContent(step, classes) {
                 <InputLabel id="sneaker-brand">Quel modèle souhaites-tu authentifier ?</InputLabel>
                 <Select
                   labelId="sneaker-brand"
-                  // value={sneakerBrand}
+                  value={""}
                   // onChange={handleChange}
                 >
                   <MenuItem value={"yeezyx"}>Yeezy X</MenuItem>
@@ -97,7 +105,50 @@ function getStepContent(step, classes) {
         </Grid>
       );
     case 1:
-      return 'What is an ad group anyways?';
+      const dateTimeArray = getNext15DaysTimeArray()
+      return (
+        <Grid container justify="space-evenly" style={{flexWrap: 'nowrap', height: 350}}>
+          { Object.keys(dateTimeArray).map((dayKey, index) => {
+            if(index >= 8) {
+              return null
+            }
+            return (
+              <Grid item key={dayKey}>
+                <Grid container direction="column">
+                  <Grid item>
+                    <Card className={classes.Card}>
+                      <CardActionArea className={classes.CardActionArea}>
+                        {dayKey}
+                      </CardActionArea>
+                    </Card>
+                  </Grid>
+                  <Grid item>
+                    <Grid container direction="column" style={{flexWrap: 'nowrap', overflowX: 'scroll', height: 200}}>
+                      {
+                        Object.keys(dateTimeArray[dayKey]).map((timeMinKey, idx) => {
+                          
+                          return (
+                            <Grid item key={timeMinKey}>
+                              <Card className={classes.Card}>
+                                <CardActionArea className={classes.CardActionArea}>
+                                  {dateTimeArray[dayKey][timeMinKey]}
+                                </CardActionArea>
+                              </Card>
+                            </Grid>
+                          )
+                        })
+                      }
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            )
+          })}
+          <Grid item>
+
+          </Grid>
+        </Grid>
+      );
     case 2:
       return 'This is the bit I really care about!';
     default:
@@ -165,9 +216,11 @@ const ContactFormComponent = () => {
       </Stepper>
       <div className={classes.root}>
           <div>
-            <Typography className={classes.instructions}>
+            <div className={classes.instructions}>
               {getStepContent(activeStep, classes)}
-            </Typography>
+            </div>
+            {/* <Typography className={classes.instructions}>
+            </Typography> */}
             <div>
               <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
                 Retour
