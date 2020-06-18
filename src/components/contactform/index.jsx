@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Stepper, Step, StepButton, Button, Typography, TextField, FormControl, InputLabel, Select, MenuItem, Card, CardActionArea } from '@material-ui/core';
+import { Grid, Stepper, Step, StepButton, Button, Typography, TextField, FormControl, InputLabel, Select, MenuItem, Card, CardActionArea, Paper } from '@material-ui/core';
 
 import getNext15DaysTimeArray from '../../utils/date-time-slot-gen'
 
@@ -12,10 +12,17 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 20
   },
   CardActionArea: {
-    padding: 20
+    padding: '15px 30px'
   },
   Card: {
-    margin: 10
+    margin: '0 25px',
+    marginTop: 20
+  },
+  dateTimePickerHeader: {
+    padding: '15px 30px',
+    margin: '50px 32px',
+    fontWeight: 'bolder',
+    fontSize: 16
   },
   button: {
     marginRight: theme.spacing(1),
@@ -107,47 +114,46 @@ function getStepContent(step, classes) {
     case 1:
       const dateTimeArray = getNext15DaysTimeArray()
       return (
-        <Grid container justify="space-evenly" style={{flexWrap: 'nowrap', height: 350}}>
-          { Object.keys(dateTimeArray).map((dayKey, index) => {
-            if(index >= 8) {
-              return null
-            }
-            return (
-              <Grid item key={dayKey}>
-                <Grid container direction="column">
-                  <Grid item>
-                    <Card className={classes.Card}>
-                      <CardActionArea className={classes.CardActionArea}>
-                        {dayKey}
-                      </CardActionArea>
-                    </Card>
-                  </Grid>
-                  <Grid item>
-                    <Grid container direction="column" style={{flexWrap: 'nowrap', overflowX: 'scroll', height: 200}}>
-                      {
-                        Object.keys(dateTimeArray[dayKey]).map((timeMinKey, idx) => {
-                          
-                          return (
-                            <Grid item key={timeMinKey}>
-                              <Card className={classes.Card}>
-                                <CardActionArea className={classes.CardActionArea}>
-                                  {dateTimeArray[dayKey][timeMinKey]}
-                                </CardActionArea>
-                              </Card>
-                            </Grid>
-                          )
-                        })
-                      }
+        <Paper>
+          <Grid container justify="space-evenly" style={{flexWrap: 'nowrap', height: 450, overflow: 'scroll'}}>
+            { Object.keys(dateTimeArray).map((dayKey, index) => {
+              // if(index >= 8) {
+              //   return null
+              // }
+              return (
+                <Grid item>
+                  <Grid container direction="column" style={{flexWrap: 'nowrap'}}>
+                    <Grid item key={dayKey} style={{background: 'white', zIndex: 2, position: 'sticky', top: 0, borderBottom: '1px solid #E7E7E7'}}>
+                      {/* <Card className={classes.Card}>
+                        <CardActionArea className={classes.CardActionArea}> */}
+                          <Typography className={classes.dateTimePickerHeader}>
+                            {dayKey}
+                          </Typography>
+                        {/* </CardActionArea>
+                      </Card> */}
                     </Grid>
+                    {/* <Grid item> */}
+                        {
+                          Object.keys(dateTimeArray[dayKey]).map((timeMinKey, idx) => {
+                            
+                            return (
+                              <Grid item key={timeMinKey}>
+                                <Card className={classes.Card}>
+                                  <CardActionArea className={classes.CardActionArea}>
+                                    {dateTimeArray[dayKey][timeMinKey]}
+                                  </CardActionArea>
+                                </Card>
+                              </Grid>
+                            )
+                          })
+                        }
+                      {/* </Grid> */}
                   </Grid>
                 </Grid>
-              </Grid>
-            )
-          })}
-          <Grid item>
-
+              )
+            })}
           </Grid>
-        </Grid>
+        </Paper>
       );
     case 2:
       return 'This is the bit I really care about!';
