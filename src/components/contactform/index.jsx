@@ -115,7 +115,7 @@ function getStepContent(step, classes) {
       const dateTimeArray = getNext15DaysTimeArray()
       return (
         <Paper>
-          <Grid container justify="space-evenly" style={{flexWrap: 'nowrap', height: 450, overflow: 'scroll'}}>
+          <Grid container justify="flex-start" style={{flexWrap: 'nowrap', height: 450, overflow: 'scroll'}}>
             { Object.keys(dateTimeArray).map((dayKey, index) => {
               // if(index >= 8) {
               //   return null
