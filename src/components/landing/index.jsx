@@ -6,6 +6,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import HeaderComponent from './HeaderComponent'
 import ContactFormComponent from '../contactform'
 
+import {ReactComponent as SNKRLOGO} from '../../library/SNKRLOGO.svg'
+
 const useStyles = makeStyles({
   brandName: {
     marginTop: 50,
@@ -20,7 +22,7 @@ const LandingContainer = () => {
 
   return (
     <div>
-      <Typography className={classes.brandName} variant="h1" color="initial">SNKRS TRUST</Typography>
+      <Typography className={classes.brandName} variant="h1" color="initial"><SNKRLOGO/></Typography>
       <HeaderComponent/>
       <Typography variant="h1" color="initial">
         {/* LandingContainer */}
