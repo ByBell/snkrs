@@ -1,12 +1,10 @@
 import React from 'react'
 
-import { Typography, Grid } from '@material-ui/core'
+import { Typography, Grid, Card, CardContent } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'; 
 
 import HeaderComponent from './HeaderComponent'
-import ContactFormComponent from '../contactform'
 
-import {ReactComponent as SNKRLOGO} from '../../library/SNKRLOGO.svg'
 import {ReactComponent as ThreeSteps} from '../../library/3steps.svg'
 
 import {ReactComponent as FirststepSneakers} from '../../library/firststepSneakers.svg'
@@ -18,13 +16,14 @@ import {ReactComponent as SecondStepExpertIcon} from '../../library/secondStepEx
 import {ReactComponent as ThirdStepParcel} from '../../library/thirdStepParcel.svg'
 import {ReactComponent as ThirdStepParcelIcon} from '../../library/thirdStepParcelIcon.svg'
 
+import airmax30 from '../../library/airmax30.svg'
+import airmax50 from '../../library/airmax50.svg'
+import airmax40 from '../../library/airmax40.svg'
+
 const useStyles = makeStyles({
-  brandName: {
-    marginTop: 50,
-    marginLeft: 100,
-    fontWeight: 'bold',
-    fontSize: 30
-  },
+  priceCard: {
+    margin: 'auto 40px'
+  }
 });
 
 const LandingContainer = () => {
@@ -32,10 +31,9 @@ const LandingContainer = () => {
 
   return (
     <div>
-      <Typography className={classes.brandName} variant="h1" color="initial"><SNKRLOGO/></Typography>
       <HeaderComponent/>
 
-      <Grid container direction="column" justify="center" alignItems="center" style={{marginTop: 120}}>
+      <Grid container direction="column" justify="center" alignItems="center">
         <Grid item>Comment ça marche ?</Grid>
         <Grid item>Un service en trois étapes</Grid>
         <Grid item><ThreeSteps/></Grid>
@@ -117,7 +115,70 @@ un message te signalant le resultat du legit check. Un certificat d’authentici
       </Grid>
 
 
-      <ContactFormComponent />
+      {/* Pricing */}
+      <Grid container direction="column" style={{flexWrap: 'nowrap'}} justify="center">
+        <Typography>LE PRIX</Typography>
+        <Typography>Un prix adapté à ta paire</Typography>
+        <Typography>Le prix de l’authentification dépend du modèle 
+de la sneaker et donc de la valeur de celui-ci. </Typography>
+
+        <Grid container direction="row" justify="center">
+          <Grid item className={classes.priceCard}>
+            <Card raised elevation={20} style={{width: 320, overflow: 'visible', borderRadius: 50}}>
+              <CardContent style={{height: 230, background: '#F5F6FF', position: 'relative', borderRadius: '50px 50px 0 0'}}>
+                <img src={airmax30} alt="" style={{position: 'absolute', top: -50, left: -30}} />
+              </CardContent>
+              <CardContent style={{borderRadius: '20px 20px 50px 50px'}}>
+                <Typography variant="body2" color="textSecondary" component="p">
+                Ce prix correspond aux sneakers dont la valeur du marché est proche du prix initial.
+                </Typography>
+              </CardContent>
+              <Grid container justify="flex-end">
+                <div style={{ fontSize: 38, fontWeight: 'bold', borderRadius: '35px 0 50px 0', padding: '22px 30px', width: 'min-content', background: '#60DF41', color: 'white'}}>
+                 30€
+                </div>
+              </Grid>
+            </Card>
+          </Grid>
+
+          <Grid item className={classes.priceCard}>
+            <Card raised elevation={20} style={{marginTop: 75, width: 320, overflow: 'visible', borderRadius: 50}}>
+              <CardContent style={{height: 230, background: '#F1FFE7', position: 'relative', borderRadius: '50px 50px 0 0'}}>
+                <img src={airmax50} alt="" style={{position: 'absolute', top: -50, left: -30}} />
+              </CardContent>
+              <CardContent style={{borderRadius: '20px 20px 50px 50px'}}>
+                <Typography variant="body2" color="textSecondary" component="p">
+                Ce prix concerne les paires qui nécessitent plus de temps d’analyse et dont le prix resell est supérieur au prix retail.
+                </Typography>
+              </CardContent>
+              <Grid container justify="flex-end">
+                <div style={{ fontSize: 38, fontWeight: 'bold', borderRadius: '35px 0 50px 0', padding: '22px 30px', width: 'min-content', background: '#60DF41', color: 'white'}}>
+                 50€
+                </div>
+              </Grid>
+            </Card>
+          </Grid>
+
+          <Grid item className={classes.priceCard}>
+            <Card raised elevation={20} style={{width: 320, overflow: 'visible', borderRadius: 50}}>
+              <CardContent style={{height: 230, background: '#FFE0E8', position: 'relative', borderRadius: '50px 50px 0 0'}}>
+                <img src={airmax40} alt="" style={{position: 'absolute', top: -50, left: -30}} />
+              </CardContent>
+              <CardContent style={{borderRadius: '20px 20px 50px 50px'}}>
+                <Typography variant="body2" color="textSecondary" component="p">
+                Ce prix correspond aux sneakers dont la valeur du marché est supérieure au prix initial.
+                </Typography>
+              </CardContent>
+              <Grid container justify="flex-end">
+                <div style={{ fontSize: 38, fontWeight: 'bold', borderRadius: '35px 0 50px 0', padding: '22px 30px', width: 'min-content', background: '#60DF41', color: 'white'}}>
+                 40€
+                </div>
+              </Grid>
+            </Card>
+          </Grid>
+        </Grid>
+      </Grid>
+
     </div>
   )
 }

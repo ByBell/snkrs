@@ -35,14 +35,15 @@ const getDateTimeSlots = () => {
 }
 
 const getNext15DaysTimeArray = () => {
+  const weekDayArray = ["Dim.", "Lun.", "Mar.", "Mer.", "Jeu.", "Ven.", "Sam."]
   const result = {}
   let date = new Date()
 
-  result[`${date.getDate()}/${date.getMonth() + 1}`] = getDateTimeSlots()
+  result[`${weekDayArray[date.getDay()]} ${date.getDate().toString().length === 1 ? "0"+date.getDate() : date.getDate()}/0${date.getMonth() + 1}`] = getDateTimeSlots()
 
   for(let i = 1; i< 16; i++) {
     date = addDays(date, 1)
-    result[`${date.getDate()}/${date.getMonth() + 1}`] = getDateTimeSlots()
+    result[`${weekDayArray[date.getDay()]} ${date.getDate().toString().length === 1 ? "0"+date.getDate() : date.getDate()}/0${date.getMonth() + 1}`] = getDateTimeSlots()
   }
 
   return result

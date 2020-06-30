@@ -13,6 +13,8 @@ import { ThemeProvider } from '@material-ui/styles';
 import MuiTheme from './theme';
 
 const LandingContainer = lazy(() => import('./components/landing'));
+const ContactForm = lazy(() => import('./components/contactform'));
+const HeaderWrapper = lazy(() => import('./components/headerWrapper'))
 
 const Routes = (props) => {
   const location = useLocation()
@@ -24,16 +26,19 @@ const Routes = (props) => {
         <Suspense
           fallback={
             <Grid container justify="center" alignItems="center" style={{height: '100vh', width: '100vw'}}>
-                <CircularProgress
-                  variant="indeterminate"
-                  disableShrink
-                  size={24}
-                  thickness={4}
-                  /> 
+              <CircularProgress
+                variant="indeterminate"
+                disableShrink
+                size={24}
+                thickness={4}
+                /> 
             </Grid>
         }>
           <Switch location={location} key={location.pathname}>
-            <Route exact path={'/'} component={LandingContainer} />
+            <HeaderWrapper>
+              <Route exact path={'/'} component={LandingContainer} />
+              <Route exact path={'/get-reservation'} component={ContactForm} />
+            </HeaderWrapper>
           </Switch>
 
         </Suspense>
