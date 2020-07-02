@@ -10,6 +10,10 @@ const useStyles = makeStyles((theme) => ({
   header: {
     padding: '50px 100px',
   },
+  headerNoBP: {
+    padding: '50px 100px',
+    paddingBottom: 0
+  },
   brandName: {
     fontWeight: 'bold',
     fontSize: 30
@@ -39,7 +43,7 @@ const HeaderWrapper = ({children}) => {
 
   return (
     <>
-      <Grid className={classes.header} container justify="space-between" alignItems="center">
+      <Grid className={location.pathname === '/' ? classes.header : classes.headerNoBP} container justify="space-between" alignItems="center">
         <Grid item>
           <Typography component={RouterLink} to="/" className={classes.brandName} variant="h1" color="initial"><SNKRLOGO/></Typography>
         </Grid>
