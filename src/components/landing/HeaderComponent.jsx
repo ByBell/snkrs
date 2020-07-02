@@ -55,7 +55,7 @@ const HeaderComponent = () => {
             </Grid>
           </Grid>
 
-          <Grid item style={{position: 'absolute', bottom: 220}}>
+          <Grid item style={{position: 'absolute', marginTop: 480}}>
             <img src={LastAuth} alt=""/>
           </Grid>
         </Grid>
