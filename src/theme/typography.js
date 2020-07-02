@@ -1,19 +1,22 @@
 export default {
   fontFamily: 'Maax',
   h1: {
-    fontWeight: 'bolder',
+    fontWeight: 900,
     fontSize: '30px',
-    lineHeight: '33px'
+    lineHeight: '33px',
+    color: '#2F2F2F'
   },
   h2: {
-    fontWeight: 'bolder',
-    fontSize: '50px',
-    lineHeight: '32px'
+    fontWeight: 900,
+    fontSize: '52px',
+    lineHeight: '52px',
+    color: '#2F2F2F'
   },
   h3: {
-    fontWeight: 500,
-    fontSize: '24px',
-    lineHeight: '28px'
+    fontWeight: 700,
+    fontSize: '35px',
+    lineHeight: '28px',
+    color: '#2F2F2F'
   },
   h4: {
     fontWeight: 500,
@@ -39,7 +42,8 @@ export default {
     fontSize: '14px'
   },
   body1: {
-    fontSize: '14px'
+    fontSize: '18px',
+    color: '#747474'
   },
   body2: {
     fontSize: '14px'

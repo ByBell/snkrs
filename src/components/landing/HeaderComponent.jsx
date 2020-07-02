@@ -28,14 +28,14 @@ const HeaderComponent = () => {
   const classes = useStyles()
   
   return (
-    <Grid container justify="space-between" alignContent="center" style={{background: "url('bgHeader.svg') no-repeat 100px center", marginBottom: 112}}>
+    <Grid container justify="space-between" alignContent="center" style={{background: "url('bgHeader.svg') no-repeat 100px center"}}>
       <Grid item style={{ width: '50%', paddingLeft: 60}}>
         <Grid container className={classes.leftpanel} justify="center" direction="column">
 
           <Grid item>
             <Grid container justify="center" direction="column">
               <Grid item>
-                <Typography style={{fontSize: 50, lineHeight: 'normal', fontWeight: 'bold'}} >Authentifie ta paire de sneakers</Typography>
+                <Typography variant="h2">Authentifie ta paire de sneakers</Typography>
               </Grid>
               <Grid item>
                 <p>Soyez certain de l'authenticité de vos sneakers et augmentez leurs côtes. En un clic c'est fait !</p>
