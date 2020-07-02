@@ -101,61 +101,60 @@ const LandingContainer = () => {
           subtitle="Le prix"
           title="Un prix adapté à ta paire"
         />
-        <Typography>Le prix de l’authentification dépend du modèle 
-de la sneaker et donc de la valeur de celui-ci. </Typography>
+        <Typography style={{textAlign: "center"}}>Le prix de l’authentification dépend du modèle de la sneaker et donc de la valeur de celui-ci. </Typography>
 
         <Grid container direction="row" justify="center">
           <Grid item className={classes.priceCard}>
-            <Card raised elevation={20} style={{width: 320, overflow: 'visible', borderRadius: 50}}>
-              <CardContent style={{height: 230, background: '#F5F6FF', position: 'relative', borderRadius: '50px 50px 0 0'}}>
+            <Card raised elevation={20} style={{width: 320, background: '#F5F6FF', overflow: 'visible', borderRadius: 50}}>
+              <CardContent style={{height: 230, position: 'relative', borderRadius: '50px 50px 0 0'}}>
                 <img src={airmax30} alt="" style={{position: 'absolute', top: -50, left: -30}} />
               </CardContent>
-              <CardContent style={{borderRadius: '20px 20px 50px 50px'}}>
-                <Typography variant="body2" color="textSecondary" component="p">
+              <CardContent style={{borderRadius: '20px 20px 50px 50px', background: 'white', paddingBottom: 0, paddingRight: 0}}>
+                <Typography variant="body2" color="textSecondary" component="p" style={{padding: 14}}>
                 Ce prix correspond aux sneakers dont la valeur du marché est proche du prix initial.
                 </Typography>
+                <Grid container justify="flex-end" style={{padding: 0}}>
+                  <div style={{ fontSize: 38, fontWeight: 'bold', borderRadius: '35px 0 50px 0', padding: '22px 30px', width: 'min-content', background: '#60DF41', color: 'white'}}>
+                  30€
+                  </div>
+                </Grid>
               </CardContent>
-              <Grid container justify="flex-end">
-                <div style={{ fontSize: 38, fontWeight: 'bold', borderRadius: '35px 0 50px 0', padding: '22px 30px', width: 'min-content', background: '#60DF41', color: 'white'}}>
-                 30€
-                </div>
-              </Grid>
             </Card>
           </Grid>
 
           <Grid item className={classes.priceCard}>
-            <Card raised elevation={20} style={{marginTop: 75, width: 320, overflow: 'visible', borderRadius: 50}}>
-              <CardContent style={{height: 230, background: '#F1FFE7', position: 'relative', borderRadius: '50px 50px 0 0'}}>
+            <Card raised elevation={20} style={{width: 320, background: '#F1FFE7', overflow: 'visible', borderRadius: 50}}>
+              <CardContent style={{height: 230, position: 'relative', borderRadius: '50px 50px 0 0'}}>
                 <img src={airmax50} alt="" style={{position: 'absolute', top: -50, left: -30}} />
               </CardContent>
-              <CardContent style={{borderRadius: '20px 20px 50px 50px'}}>
-                <Typography variant="body2" color="textSecondary" component="p">
+              <CardContent style={{borderRadius: '20px 20px 50px 50px', background: 'white', paddingBottom: 0, paddingRight: 0}}>
+                <Typography variant="body2" color="textSecondary" component="p" style={{padding: 14}}>
                 Ce prix concerne les paires qui nécessitent plus de temps d’analyse et dont le prix resell est supérieur au prix retail.
                 </Typography>
+                <Grid container justify="flex-end" style={{padding: 0}}>
+                  <div style={{ fontSize: 38, fontWeight: 'bold', borderRadius: '35px 0 50px 0', padding: '22px 30px', width: 'min-content', background: '#60DF41', color: 'white'}}>
+                  50€
+                  </div>
+                </Grid>
               </CardContent>
-              <Grid container justify="flex-end">
-                <div style={{ fontSize: 38, fontWeight: 'bold', borderRadius: '35px 0 50px 0', padding: '22px 30px', width: 'min-content', background: '#60DF41', color: 'white'}}>
-                 50€
-                </div>
-              </Grid>
             </Card>
           </Grid>
 
           <Grid item className={classes.priceCard}>
-            <Card raised elevation={20} style={{width: 320, overflow: 'visible', borderRadius: 50}}>
-              <CardContent style={{height: 230, background: '#FFE0E8', position: 'relative', borderRadius: '50px 50px 0 0'}}>
+            <Card raised elevation={20} style={{width: 320, background: '#FFE0E8', overflow: 'visible', borderRadius: 50}}>
+              <CardContent style={{height: 230, position: 'relative', borderRadius: '50px 50px 0 0'}}>
                 <img src={airmax40} alt="" style={{position: 'absolute', top: -50, left: -30}} />
               </CardContent>
-              <CardContent style={{borderRadius: '20px 20px 50px 50px'}}>
-                <Typography variant="body2" color="textSecondary" component="p">
+              <CardContent style={{borderRadius: '20px 20px 50px 50px', background: 'white', paddingBottom: 0, paddingRight: 0}}>
+                <Typography variant="body2" color="textSecondary" component="p" style={{padding: 14}}>
                 Ce prix correspond aux sneakers dont la valeur du marché est supérieure au prix initial.
                 </Typography>
+                <Grid container justify="flex-end" style={{padding: 0}}>
+                  <div style={{ fontSize: 38, fontWeight: 'bold', borderRadius: '35px 0 50px 0', padding: '22px 30px', width: 'min-content', background: '#60DF41', color: 'white'}}>
+                  40€
+                  </div>
+                </Grid>
               </CardContent>
-              <Grid container justify="flex-end">
-                <div style={{ fontSize: 38, fontWeight: 'bold', borderRadius: '35px 0 50px 0', padding: '22px 30px', width: 'min-content', background: '#60DF41', color: 'white'}}>
-                 40€
-                </div>
-              </Grid>
             </Card>
           </Grid>
         </Grid>
