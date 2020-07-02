@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Stepper, Step, StepButton, Button, IconButton, Typography, TextField, FormControl, InputLabel, Select, MenuItem, Card, CardActionArea, Paper } from '@material-ui/core';
+import { Grid, Stepper, Step, StepButton, Button, Typography, TextField, FormControl, InputLabel, Select, MenuItem, Card, CardActionArea, Paper } from '@material-ui/core';
 
 import { Link as RouterLink } from 'react-router-dom'
 
@@ -434,7 +434,7 @@ function GetStepContent({activeStep, handleNext, classes, nextButton, selectedDa
 const ContactFormComponent = () => {
   const classes = useStyles()
 
-  const [activeStep, setActiveStep] = useState(2);
+  const [activeStep, setActiveStep] = useState(0);
   console.log(activeStep)
   const steps = getSteps();
 
@@ -448,11 +448,6 @@ const ContactFormComponent = () => {
 
   const handleStep = (step) => () => {
     setActiveStep(step);
-  };
-
-
-  const handleSubmit = () => {
-    setActiveStep(0);
   };
 
   const [selectedDateTime, setSelectedDateTime] = useState(undefined);
