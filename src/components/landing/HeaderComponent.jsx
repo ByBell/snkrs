@@ -35,7 +35,7 @@ const HeaderComponent = () => {
           <Grid item>
             <Grid container justify="center" direction="column">
               <Grid item>
-                <Typography style={{fontSize: 50, lineHeight: 'normal', fontWeight: 'bold'}} >Authentifie ta paire de sneakers</Typography>
+                <Typography style={{fontSize: 50, lineHeight: 'normal', fontWeight: 'bold'}}>Authentifie ta paire de sneakers</Typography>
               </Grid>
               <Grid item>
                 <p>Soyez certain de l'authenticité de vos sneakers et augmentez leurs côtes. En un clic c'est fait !</p>

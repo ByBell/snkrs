@@ -241,10 +241,11 @@ const ContactFormComponent = () => {
   };
 
   const [selectedDateTime, setSelectedDateTime] = useState(undefined);
+  console.log(activeStep)
 
   return (
     <Grid container style={{padding: '0 200px'}} justify="center" direction="column" alignItems="center">
-      <Typography>
+      <Typography style={{alignSelf: 'flex-start'}}>
         <Button
           component={RouterLink}
           to="/"
@@ -253,20 +254,22 @@ const ContactFormComponent = () => {
           <u>Retour page d'accueil</u>
         </Button>
       </Typography>
-      <Stepper className={classes.root} activeStep={activeStep}>
-        {steps.map((label, index) => {
-          const stepProps = {};
-          const labelProps = {};
-          if (isStepOptional(index)) {
-            labelProps.optional = <Typography variant="caption">Optional</Typography>;
-          }
-          return (
-            <Step key={label} {...stepProps}>
-              <StepButton onClick={handleStep(index)} {...labelProps}>{label}</StepButton>
-            </Step>
-          );
-        })}
-      </Stepper>
+      {activeStep <= 1 && (
+        <Stepper className={classes.root} activeStep={activeStep}>
+          {steps.map((label, index) => {
+            const stepProps = {};
+            const labelProps = {};
+            if (isStepOptional(index)) {
+              labelProps.optional = <Typography variant="caption">Optional</Typography>;
+            }
+            return (
+              <Step key={label} {...stepProps}>
+                <StepButton onClick={handleStep(index)} {...labelProps}>{label}</StepButton>
+              </Step>
+            );
+          })}
+        </Stepper>
+      )}
       <div className={classes.root}>
           <div>
             <div className={classes.instructions}>

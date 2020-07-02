@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '40px 100px 5px 100px'
   },
   ml50: {
-    marginLeft: 50
+    marginLeft: 30
   }
 }));
 
@@ -50,6 +50,9 @@ const HeaderWrapper = ({children}) => {
           </Button>
           <Button className={classes.ml50} component={RouterLink} to="">
             LE PRIX
+          </Button>
+          <Button className={classes.ml50} component={RouterLink} to="">
+            S.A.V
           </Button>
           <Button className={classes.ml50} component={RouterLink} to="">
             CONTACT
@@ -78,6 +81,9 @@ const HeaderWrapper = ({children}) => {
               </Button>
               <Button component={RouterLink} to="">
                 LE PRIX
+              </Button>
+              <Button component={RouterLink} to="">
+                S.A.V
               </Button>
               <Button component={RouterLink} to="">
                 CONTACT
