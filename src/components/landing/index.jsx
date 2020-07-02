@@ -123,7 +123,7 @@ const LandingContainer = () => {
 
         <Grid container direction="row" justify="center">
           <Grid item className={classes.priceCard}>
-            <Card raised elevation={15} style={{width: 260, background: '#F5F6FF', overflow: 'visible', borderRadius: 50}}>
+            <Card raised style={{width: 260, background: '#F5F6FF', overflow: 'visible', borderRadius: 50, boxShadow: '0px 4px 35px rgba(0, 0, 0, 0.15)'}}>
               <CardContent style={{height: 200, position: 'relative', borderRadius: '50px 50px 0 0'}}>
                 <img src={airmax30} alt="" style={{position: 'absolute', top: -25, left: -10, width: 250}} />
               </CardContent>
@@ -141,7 +141,7 @@ const LandingContainer = () => {
           </Grid>
 
           <Grid item className={classes.priceCard}>
-            <Card raised elevation={15} style={{width: 260, background: '#F1FFE7', overflow: 'visible', borderRadius: 50, marginTop: 100}}>
+            <Card raised style={{width: 260, background: '#F1FFE7', overflow: 'visible', borderRadius: 50, boxShadow: '0px 4px 35px rgba(0, 0, 0, 0.15)', marginTop: 100}}>
               <CardContent style={{height: 200, position: 'relative', borderRadius: '50px 50px 0 0'}}>
                 <img src={airmax50} alt="" style={{position: 'absolute', top: -25, left: -10, width: 250}} />
               </CardContent>
@@ -159,7 +159,7 @@ const LandingContainer = () => {
           </Grid>
 
           <Grid item className={classes.priceCard}>
-            <Card raised elevation={15} style={{width: 260, background: '#FFE0E8', overflow: 'visible', borderRadius: 50}}>
+            <Card raised style={{width: 260, background: '#FFE0E8', overflow: 'visible', borderRadius: 50, boxShadow: '0px 4px 35px rgba(0, 0, 0, 0.15)'}}>
               <CardContent style={{height: 200, position: 'relative', borderRadius: '50px 50px 0 0'}}>
                 <img src={airmax40} alt="" style={{position: 'absolute', top: -25, left: -10, width: 250}} />
               </CardContent>
