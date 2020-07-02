@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Typography, Grid, Card, CardContent } from '@material-ui/core'
+import { Typography, Grid, Card, CardContent, TextField } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'; 
 
 import HeaderComponent from './HeaderComponent'
@@ -8,13 +8,15 @@ import HeaderComponent from './HeaderComponent'
 import {ReactComponent as ThreeSteps} from '../../library/3steps.svg'
 
 import FirstStepSneakersIcon from '../../library/firstStepSneakersIcon.png'
-import {ReactComponent as FirststepRdv} from '../../library/firststepRdv.svg'
+import priseencharge from '../../library/priseencharge.png'
 
-import {ReactComponent as SecondStepExpert} from '../../library/secondStepExpert.svg'
+
 import SecondStepExpertIcon from '../../library/secondStepExpertIcon.png'
+import illustrationexpert from '../../library/illustrationexpert.png'
 
-import {ReactComponent as ThirdStepParcel} from '../../library/thirdStepParcel.svg'
+
 import ThirdStepParcelIcon from '../../library/thirdStepParcelIcon.png'
+import authetcert from '../../library/authetcert.png'
 
 import airmax30 from '../../library/airmax30.svg'
 import airmax50 from '../../library/airmax50.svg'
@@ -23,12 +25,28 @@ import airmax40 from '../../library/airmax40.svg'
 import SectionTitle from './SectionTitle';
 import SectionTextPart from './SectionTextPart';
 
+import savgauche from '../../library/savgauche.png'
+import savdroite from '../../library/savdroite.png'
+
+import contactgauche from '../../library/contactgauche.png'
+import contactdroite from '../../library/contactdroite.png'
+
+import AuthentifierArrowBtn from './AuthentifierArrowBtn'
+import ContactBtn from './ContactBtn'
+
 const useStyles = makeStyles({
   section: {
     padding: '100px 0'
   },
   priceCard: {
     margin: 'auto 40px'
+  },
+  priceContainer: {
+    background: 'linear-gradient(180deg, #F8F8FF 10.26%, rgba(248, 248, 255, 0) 107.14%)',
+    borderRadius: 25
+  },
+  contactform: {
+    marginBottom: 30
   }
 });
 
@@ -39,12 +57,12 @@ const LandingContainer = () => {
     <div>
       <HeaderComponent/>
 
-      <Grid container direction="column" className={classes.section} justify="center" alignItems="center">
+      <Grid id="commentçamarche" container direction="column" className={classes.section} justify="center" alignItems="center">
         <SectionTitle 
           subtitle="Comment ça marche ?"
           title="Un service en 3 étapes"
         />
-        <Grid item><ThreeSteps/></Grid>
+        <Grid item><ThreeSteps style={{width: '100%'}}/></Grid>
       </Grid>
 
       {/* FIRST STEP */}
@@ -59,16 +77,16 @@ const LandingContainer = () => {
           </SectionTextPart>
         </Grid>
         <Grid item>
-          <FirststepRdv/>
+          <img style={{width: '100%'}} src={priseencharge} alt='' />
         </Grid>
       </Grid>
 
       {/* SECOND STEP */}
       <Grid container direction="row" className={classes.section} style={{flexWrap: 'nowrap'}} justify="space-between">
         <Grid item>
-          <SecondStepExpert/>
+          <img style={{width: '100%'}} src={illustrationexpert} alt='' />
         </Grid>
-        <Grid item style={{marginLeft: 205}}>
+        <Grid item style={{marginLeft: 115, marginRight: 90}}>
           <SectionTextPart
             icon={SecondStepExpertIcon}
             title="Un expert spécialisé pour ta sneakers"
@@ -90,13 +108,13 @@ const LandingContainer = () => {
           </SectionTextPart>
         </Grid>
         <Grid item>
-          <ThirdStepParcel/>
+          <img style={{width: '100%'}} src={authetcert} alt='' />
         </Grid>
       </Grid>
 
 
       {/* Pricing */}
-      <Grid container direction="column" className={classes.section} style={{flexWrap: 'nowrap'}} justify="center">
+      <Grid id="prix" container direction="column" className={`${classes.section} ${classes.priceContainer}`} style={{flexWrap: 'nowrap', width: 'calc(100vw - 200px)', margin: 'auto', marginBottom: 100}} justify="center">
         <SectionTitle
           subtitle="Le prix"
           title="Un prix adapté à ta paire"
@@ -105,9 +123,9 @@ const LandingContainer = () => {
 
         <Grid container direction="row" justify="center">
           <Grid item className={classes.priceCard}>
-            <Card raised elevation={20} style={{width: 320, background: '#F5F6FF', overflow: 'visible', borderRadius: 50}}>
-              <CardContent style={{height: 230, position: 'relative', borderRadius: '50px 50px 0 0'}}>
-                <img src={airmax30} alt="" style={{position: 'absolute', top: -50, left: -30}} />
+            <Card raised elevation={15} style={{width: 260, background: '#F5F6FF', overflow: 'visible', borderRadius: 50}}>
+              <CardContent style={{height: 200, position: 'relative', borderRadius: '50px 50px 0 0'}}>
+                <img src={airmax30} alt="" style={{position: 'absolute', top: -25, left: -10, width: 250}} />
               </CardContent>
               <CardContent style={{borderRadius: '20px 20px 50px 50px', background: 'white', paddingBottom: 0, paddingRight: 0}}>
                 <Typography variant="body2" color="textSecondary" component="p" style={{padding: 14}}>
@@ -123,9 +141,9 @@ const LandingContainer = () => {
           </Grid>
 
           <Grid item className={classes.priceCard}>
-            <Card raised elevation={20} style={{width: 320, background: '#F1FFE7', overflow: 'visible', borderRadius: 50}}>
-              <CardContent style={{height: 230, position: 'relative', borderRadius: '50px 50px 0 0'}}>
-                <img src={airmax50} alt="" style={{position: 'absolute', top: -50, left: -30}} />
+            <Card raised elevation={15} style={{width: 260, background: '#F1FFE7', overflow: 'visible', borderRadius: 50, marginTop: 100}}>
+              <CardContent style={{height: 200, position: 'relative', borderRadius: '50px 50px 0 0'}}>
+                <img src={airmax50} alt="" style={{position: 'absolute', top: -25, left: -10, width: 250}} />
               </CardContent>
               <CardContent style={{borderRadius: '20px 20px 50px 50px', background: 'white', paddingBottom: 0, paddingRight: 0}}>
                 <Typography variant="body2" color="textSecondary" component="p" style={{padding: 14}}>
@@ -141,9 +159,9 @@ const LandingContainer = () => {
           </Grid>
 
           <Grid item className={classes.priceCard}>
-            <Card raised elevation={20} style={{width: 320, background: '#FFE0E8', overflow: 'visible', borderRadius: 50}}>
-              <CardContent style={{height: 230, position: 'relative', borderRadius: '50px 50px 0 0'}}>
-                <img src={airmax40} alt="" style={{position: 'absolute', top: -50, left: -30}} />
+            <Card raised elevation={15} style={{width: 260, background: '#FFE0E8', overflow: 'visible', borderRadius: 50}}>
+              <CardContent style={{height: 200, position: 'relative', borderRadius: '50px 50px 0 0'}}>
+                <img src={airmax40} alt="" style={{position: 'absolute', top: -25, left: -10, width: 250}} />
               </CardContent>
               <CardContent style={{borderRadius: '20px 20px 50px 50px', background: 'white', paddingBottom: 0, paddingRight: 0}}>
                 <Typography variant="body2" color="textSecondary" component="p" style={{padding: 14}}>
@@ -158,6 +176,56 @@ const LandingContainer = () => {
             </Card>
           </Grid>
         </Grid>
+
+        <Typography style={{textAlign: 'center', marginTop: 100}}>
+          <AuthentifierArrowBtn />
+        </Typography>
+      </Grid>
+
+      <Grid container justify='space-between' style={{marginBottom: 200}}>
+        <Grid item style={{width: '25%'}}>
+          <img src={savgauche} alt='' style={{width: '100%'}}/>
+        </Grid>
+        <Grid item style={{width: '50%'}}>
+          <SectionTitle
+            subtitle="S.A.V"
+            title="Un problème durant l'authentification"
+          />
+          <Typography style={{textAlign: 'center'}}>
+            En cas de problème durant la livraion ou d’un accident pendant l’authentification, SnkrsTrust s’engage à te rembourser ta paire de sneakers.
+          </Typography>
+        </Grid>
+        <Grid item style={{width: '25%'}}>
+          <img src={savdroite} alt='' style={{width: '100%'}}/>
+        </Grid>
+
+      </Grid>
+
+      <Grid container justify='space-between' style={{marginBottom: 100}}>
+        <Grid item style={{width: '25%'}}>
+          <img src={contactgauche} alt='' style={{width: '100%'}}/>
+        </Grid>
+        <Grid item style={{width: '50%'}}>
+          <SectionTitle
+            subtitle="Contact"
+            title="On répond à tes questions"
+          />
+          <Grid container direction="column" style={{marginTop: 55}}>
+            <Grid container justify="space-between">
+              <TextField className={classes.contactform} required variant="outlined" label="Nom" defaultValue="" />
+              <TextField className={classes.contactform} required variant="outlined" label="Prénom" defaultValue="" />
+            </Grid>
+            <TextField className={classes.contactform} required variant="outlined" label="Adress mail" defaultValue="" />
+            <TextField className={classes.contactform} required variant="outlined" multiline label="Message" defaultValue="" />
+            <Typography style={{textAlign: 'center', marginTop: 50}}>
+              <ContactBtn />
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid item style={{width: '25%'}}>
+          <img src={contactdroite} alt='' style={{width: '100%'}}/>
+        </Grid>
+
       </Grid>
 
     </div>

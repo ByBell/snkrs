@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   CardActionArea: {
     padding: '15px 30px',
     color: '#344BFF',
-    fontWeight: 'bold',
+    fontWeight: 700,
     textAlign: 'center',
     fontSize: 14
   },
@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     width: 'max-content',
     margin: '0px 50px 45px',
     // margin: '50px 32px',
-    fontWeight: 'bolder',
+    fontWeight: 900,
     fontSize: 16
   },
   button: {
@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
   },
   typoColTitle: {
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 700
   }, 
   paperContact: {
     // padding: 40
@@ -67,13 +67,13 @@ const useStyles = makeStyles((theme) => ({
   },
   confirmTitle: {
     color: '#9A9A9A',
-    fontWeight: 'bold',
+    fontWeight: 700,
     fontSize: 20,
     marginBottom: 20
   },
   confirmContent: {
     color: '#2B362F',
-    fontWeight: 'bold',
+    fontWeight: 700,
     fontSize: 14
   },
   confirmSav: {
@@ -83,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
   },
   mainPaperTitle: {
     color: '#152FFF',
-    fontWeight: 'bolder',
+    fontWeight: 900,
     fontSize: 24
   }
 }));
@@ -248,7 +248,7 @@ function GetStepContent({activeStep, handleNext, classes, nextButton, selectedDa
       );
     case 2:
       return (
-        <Paper className={classes.paperContact}>
+        <Paper className={classes.paperContact} style={{maxWidth: 780, margin: 'auto'}}>
           <Grid container justify="center">
             <Typography className={classes.mainPaperTitle}>
               Récapitulatif
@@ -328,10 +328,10 @@ function GetStepContent({activeStep, handleNext, classes, nextButton, selectedDa
       );
     case 3:
       return (
-        <Paper className={classes.paperContact}>
-          <Grid container justify="center">
+        <Paper className={classes.paperContact} style={{maxWidth: 780, margin: 'auto'}}>
+          <Grid container justify="center" alignItems="center">
             <Typography className={classes.mainPaperTitle}>
-              Paiement
+              PAIEMENT
             </Typography>
             <Grid container justify="center" wrap="nowrap" direction="column" style={{padding: 50, paddingTop: 35}}>
               <Typography className={classes.confirmTitle} style={{color: '#000', paddingBottom: 30}}>
@@ -368,10 +368,10 @@ function GetStepContent({activeStep, handleNext, classes, nextButton, selectedDa
       );
     case 4:
       return (
-        <Paper className={classes.paperContact}>
+        <Paper className={classes.paperContact} style={{maxWidth: 780, margin: 'auto'}}>
           <Grid container justify="center">
             <Typography className={classes.mainPaperTitle}>
-              Paiement
+              PAIEMENT
             </Typography>
             <Grid container direction="column">
                 <Grid item className={classes.formMargin}>
@@ -382,7 +382,7 @@ function GetStepContent({activeStep, handleNext, classes, nextButton, selectedDa
                 </Grid>
                 <Grid item className={classes.formMargin}>
                   <Grid container justify="space-between">
-                    <Grid item style={{width: '65%'}}>
+                    <Grid item style={{width: '55%'}}>
                       <TextField required variant="outlined" label="Date d'expiration" defaultValue="" />
                     </Grid>
                     <Grid item style={{width: 'max-content'}}>
@@ -401,7 +401,7 @@ function GetStepContent({activeStep, handleNext, classes, nextButton, selectedDa
       return (
         <>
           <Typography className={classes.mainPaperTitle} style={{textAlign: 'center', marginBottom: 34}}>
-            Paiement
+            COMMANDE VALIDÉE
           </Typography>
           <Paper className={classes.paperContact}>
             <Grid container justify="space-evenly" alignItems="center" direction="column">

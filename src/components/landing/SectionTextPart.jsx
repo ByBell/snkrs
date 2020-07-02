@@ -36,7 +36,7 @@ const SectionTextPart = ({icon, title, children}) => {
 
     return (
         <div className={classes.sectionTextPart}>
-            <img className={classes.icon} src={icon}/>
+            <img className={classes.icon} src={icon} alt=""/>
             <Typography variant="h3" className={classes.h3}>{title}</Typography>
             <Typography>{children}</Typography>
         </div>

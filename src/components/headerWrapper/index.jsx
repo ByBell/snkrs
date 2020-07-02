@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   footer: {
     marginTop: 100,
     background: '#F8F8FF',
-    padding: '40px 100px 5px 100px'
+    padding: '40px 100px 12px 100px'
   },
   ml50: {
     marginLeft: 30
@@ -49,16 +49,16 @@ const HeaderWrapper = ({children}) => {
         </Grid>
 
         <Grid item hidden={location.pathname !== '/'}>
-          <Button className={classes.ml50} component={RouterLink} to="">
+          <Button className={classes.ml50} component={RouterLink} to="/#commentçamarche">
             COMMENT ÇA MARCHE ?
           </Button>
-          <Button className={classes.ml50} component={RouterLink} to="">
+          <Button className={classes.ml50} component={RouterLink} to="/#prix">
             LE PRIX
           </Button>
-          <Button className={classes.ml50} component={RouterLink} to="">
+          <Button className={classes.ml50} component={RouterLink} to="/#sav">
             S.A.V
           </Button>
-          <Button className={classes.ml50} component={RouterLink} to="">
+          <Button className={classes.ml50} component={RouterLink} to="/#contact">
             CONTACT
           </Button>
           <Button className={`${classes.ml50} ${classes.roundbtn}`} component={RouterLink} to="/get-reservation" variant="contained">
@@ -80,16 +80,16 @@ const HeaderWrapper = ({children}) => {
 
           <Grid item>
             <Grid container direction="column">
-              <Button component={RouterLink} to="">
+              <Button component={RouterLink} to="/#commentçamarche">
                 COMMENT ÇA MARCHE ?
               </Button>
-              <Button component={RouterLink} to="">
+              <Button component={RouterLink} to="/#prix">
                 LE PRIX
               </Button>
-              <Button component={RouterLink} to="">
+              <Button component={RouterLink} to="/#sav">
                 S.A.V
               </Button>
-              <Button component={RouterLink} to="">
+              <Button component={RouterLink} to="/#contact">
                 CONTACT
               </Button>
               <Button component={RouterLink} to="/get-reservation">
@@ -99,7 +99,7 @@ const HeaderWrapper = ({children}) => {
           </Grid>
         </Grid>
         
-        <Typography style={{textAlign: 'center'}}>© COPYRIGHT 2020 - Tous droits réservés | SNKRS TRUST</Typography>
+        <Typography style={{textAlign: 'center', fontSize: 12}}>© COPYRIGHT 2020 - Tous droits réservés | SNKRS TRUST</Typography>
       </div>
     </>
   )

@@ -4,25 +4,25 @@
 
 @font-face {
   font-family: 'Maax';
-  src: local('Maax'), url(./fonts/Maax.ttf) format('truetype');
+  src: url(./fonts/Maax.ttf) format('truetype');
 }
 
 @font-face {
     font-family: 'Maax';
     font-weight: 500;
-    src: local('Maax'), url(./fonts/Maax-Medium.ttf) format('truetype');
+    src: url(./fonts/Maax-Medium.ttf) format('truetype');
 }
 
 @font-face {
     font-family: 'Maax';
-    font-weight: 'bold';
-    src: local('Maax'), url(./fonts/Maax-Bold.ttf) format('truetype');
+    font-weight: 700;
+    src: url(./fonts/Maax-Bold.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'Maax';
-  font-weight: 'bolder';
-  src: local('Maax'), url(./fonts/Maax-Black.ttf) format('truetype');
+  font-weight: 900;
+  src: url(./fonts/Maax-Black.ttf) format('truetype');
 }
 
 body {
