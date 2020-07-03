@@ -462,6 +462,7 @@ const ContactFormComponent = () => {
         onClick={handleNext}
         className={classes.roundbtn}
         endIcon={<ArrowRightAltIcon/>}
+        disabled={Object.keys(selectedInfo).length < 10}
       >
         Suivant
       </Button>
@@ -473,6 +474,7 @@ const ContactFormComponent = () => {
           onClick={handleNext}
           className={classes.roundbtn}
           endIcon={<ArrowRightAltIcon/>}
+          disabled={selectedDateTime === undefined}
         >
           Confirmer
         </Button> 
