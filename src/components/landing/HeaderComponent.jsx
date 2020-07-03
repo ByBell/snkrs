@@ -38,7 +38,7 @@ const HeaderComponent = () => {
                 <Typography variant="h2">Authentifie ta paire de sneakers</Typography>
               </Grid>
               <Grid item>
-                <p>Soyez certain de l'authenticité de vos sneakers et augmentez leurs côtes. En un clic c'est fait !</p>
+                <p>Soyez certain de l'authenticité de vos sneakers et augmentez leurs cotes. En un clic c'est fait !</p>
               </Grid>
               <Grid item>
               <Button

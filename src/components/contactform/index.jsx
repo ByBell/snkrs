@@ -435,7 +435,6 @@ const ContactFormComponent = () => {
   const classes = useStyles()
 
   const [activeStep, setActiveStep] = useState(0);
-  console.log(activeStep)
   const steps = getSteps();
 
   const isStepOptional = (step) => {

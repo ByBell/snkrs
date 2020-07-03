@@ -119,7 +119,7 @@ const LandingContainer = () => {
           subtitle="Le prix"
           title="Un prix adapté à ta paire"
         />
-        <Typography style={{textAlign: "center"}}>Le prix de l’authentification dépend du modèle de la sneaker et donc de la valeur de celui-ci. </Typography>
+        <Typography style={{textAlign: "center"}}>Le prix de l’authentification dépend du modèle de la sneakers et donc de la valeur de celui-ci. </Typography>
 
         <Grid container direction="row" justify="center">
           <Grid item className={classes.priceCard}>
@@ -182,7 +182,7 @@ const LandingContainer = () => {
         </Typography>
       </Grid>
 
-      <Grid container justify='space-between' style={{marginBottom: 200}}>
+      <Grid id="sav" container justify='space-between' style={{marginBottom: 200}}>
         <Grid item style={{width: '25%'}}>
           <img src={savgauche} alt='' style={{width: '100%'}}/>
         </Grid>
@@ -201,7 +201,7 @@ const LandingContainer = () => {
 
       </Grid>
 
-      <Grid container justify='space-between' style={{marginBottom: 100}}>
+      <Grid id="contact" container justify='space-between' style={{marginBottom: 100}}>
         <Grid item style={{width: '25%'}}>
           <img src={contactgauche} alt='' style={{width: '100%'}}/>
         </Grid>
