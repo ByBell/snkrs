@@ -63,7 +63,9 @@ const useStyles = makeStyles((theme) => ({
   paperContact: {
     // padding: 40
     padding: '60px 90px',
-    paddingBottom: 30
+    paddingBottom: 30,
+    boxShadow: '0px 8px 25px rgba(0, 0, 0, 0.1)',
+    borderRadius: 15
   },
   confirmTitle: {
     color: '#9A9A9A',
@@ -92,7 +94,7 @@ function getSteps() {
   return ['Informations', 'Créneau de disponibilités'];
 }
 
-function GetStepContent({activeStep, handleNext, classes, nextButton, selectedDateTime, setSelectedDateTime}){
+function GetStepContent({activeStep, handleNext, classes, nextButton, selectedDateTime, setSelectedDateTime, selectedInfo, setSelectedInfo}){
 
   switch (activeStep) {
     case 0:
@@ -105,26 +107,26 @@ function GetStepContent({activeStep, handleNext, classes, nextButton, selectedDa
                   <Typography className={classes.typoColTitle}>Informations personnelles</Typography>
                 </Grid>
                 <Grid item className={classes.formMargin}>
-                  <TextField className={classes.root} required variant="outlined" label="Nom" defaultValue="" />
+                  <TextField className={classes.root} required variant="outlined" label="Nom" onChange={(e) => setSelectedInfo({...selectedInfo, nom: e.target.value})} value={selectedInfo.nom} defaultValue="" />
                 </Grid>
                 <Grid item className={classes.formMargin}>
-                  <TextField className={classes.root} required variant="outlined" label="Prénom" defaultValue="" />
+                  <TextField className={classes.root} required variant="outlined" label="Prénom" onChange={(e) => setSelectedInfo({...selectedInfo, prenom: e.target.value})} value={selectedInfo.prenom} defaultValue="" />
                 </Grid>
                 <Grid item className={classes.formMargin}>
-                  <TextField className={classes.root} required variant="outlined" label="Mail" defaultValue="" />
+                  <TextField className={classes.root} required variant="outlined" label="Mail" onChange={(e) => setSelectedInfo({...selectedInfo, mail: e.target.value})} value={selectedInfo.mail} defaultValue="" />
                 </Grid>
                 <Grid item className={classes.formMargin}>
                   <Grid container justify="space-between">
                     <Grid item style={{width: '65%'}}>
-                      <TextField required variant="outlined" label="Ville" defaultValue="" />
+                      <TextField required variant="outlined" label="Ville" onChange={(e) => setSelectedInfo({...selectedInfo, ville: e.target.value})} value={selectedInfo.ville} defaultValue="" />
                     </Grid>
                     <Grid item style={{width: '35%'}}>
-                      <TextField required variant="outlined" label="Code postal" defaultValue="" />
+                      <TextField required variant="outlined" label="Code postal" onChange={(e) => setSelectedInfo({...selectedInfo, cp: e.target.value})} value={selectedInfo.cp} defaultValue="" />
                     </Grid>
                   </Grid>
                 </Grid>
                 <Grid item className={classes.formMargin}> 
-                  <TextField className={classes.root} required variant="outlined" label="N° et nom de rue" defaultValue="" />
+                  <TextField className={classes.root} required variant="outlined" label="N° et nom de rue" onChange={(e) => setSelectedInfo({...selectedInfo, rue: e.target.value})} value={selectedInfo.rue} defaultValue="" />
                 </Grid>
               </Grid>
             </Grid>
@@ -140,8 +142,8 @@ function GetStepContent({activeStep, handleNext, classes, nextButton, selectedDa
                     <Select
                       variant="outlined"
                       labelId="sneaker-brand"
-                      value={""}
-                      // onChange={handleChange}
+                      onChange={(e) => setSelectedInfo({...selectedInfo, sneakerbrand: e.target.value})} 
+                      value={selectedInfo.sneakerbrand}
                     >
                       <MenuItem value={"adidas"}>Adidas</MenuItem>
                       <MenuItem value={"nike"}>Nike</MenuItem>
@@ -151,12 +153,12 @@ function GetStepContent({activeStep, handleNext, classes, nextButton, selectedDa
                 </Grid>
                 <Grid item className={classes.formMargin}>
                   <FormControl className={classes.root}>
-                    <InputLabel style={{paddingLeft: 14}} id="sneaker-brand">Quel modèle souhaites-tu authentifier ?</InputLabel>
+                    <InputLabel style={{paddingLeft: 14}} id="sneaker-model">Quel modèle souhaites-tu authentifier ?</InputLabel>
                     <Select
                       variant="outlined"
                       labelId="sneaker-brand"
-                      value={""}
-                      // onChange={handleChange}
+                      onChange={(e) => setSelectedInfo({...selectedInfo, sneakermodel: e.target.value})} 
+                      value={selectedInfo.sneakermodel}
                     >
                       <MenuItem value={"yeezyx"}>Yeezy X</MenuItem>
                       <MenuItem value={"yeezy350v2"}>Yeezy 350 v2</MenuItem>
@@ -165,7 +167,7 @@ function GetStepContent({activeStep, handleNext, classes, nextButton, selectedDa
                   </FormControl>
                 </Grid>
                 <Grid item className={classes.formMargin}>
-                  <TextField className={classes.root} required variant="outlined" label="Numéro de série de la paire" defaultValue="" />
+                  <TextField className={classes.root} required variant="outlined" label="Numéro de série de la paire" onChange={(e) => setSelectedInfo({...selectedInfo, serialnumber: e.target.value})} value={selectedInfo.serialnumber} defaultValue="" />
                 </Grid>
                 <Grid item className={classes.formMargin}>
                   <Grid container justify="space-between">
@@ -175,12 +177,12 @@ function GetStepContent({activeStep, handleNext, classes, nextButton, selectedDa
                     <Grid item style={{width: '50%'}}>
                       <Grid item className={classes.formMargin}>
                         <FormControl className={classes.root}>
-                          <InputLabel style={{paddingLeft: 14}} id="sneaker-brand">État de la boîte</InputLabel>
+                          <InputLabel style={{paddingLeft: 14}} id="sneaker-condition">État de la boîte</InputLabel>
                           <Select
                             variant="outlined"
                             labelId="box-condition"
-                            value={""}
-                            // onChange={handleChange}
+                            onChange={(e) => setSelectedInfo({...selectedInfo, sneakercondition: e.target.value})} 
+                            value={selectedInfo.sneakercondition}
                           >
                             <MenuItem value={""}></MenuItem>
                             <MenuItem value={"neuf"}>Neuf</MenuItem>
@@ -261,10 +263,10 @@ function GetStepContent({activeStep, handleNext, classes, nextButton, selectedDa
                   </Typography>
                   <Grid item>
                     <Typography className={classes.confirmContent}>
-                      Vincent Delaunay
+                      {selectedInfo.prenom} {selectedInfo.nom}
                     </Typography>
                     <Typography className={classes.confirmContent} style={{marginBottom: 30}}>
-                      Mail@ma.fr
+                      {selectedInfo.mail}
                     </Typography>
                   </Grid>
                   <Typography className={classes.confirmTitle}>
@@ -272,10 +274,10 @@ function GetStepContent({activeStep, handleNext, classes, nextButton, selectedDa
                   </Typography>
                   <Grid item>
                     <Typography className={classes.confirmContent}>
-                      27bis rue du Progrès
+                      {selectedInfo.rue}
                     </Typography>
                     <Typography className={classes.confirmContent} style={{marginBottom: 30}}>
-                      93100 Montreuil
+                      {selectedInfo.cp} {selectedInfo.ville}
                     </Typography>
                   </Grid>
                   <Typography className={classes.confirmTitle}>
@@ -296,10 +298,10 @@ function GetStepContent({activeStep, handleNext, classes, nextButton, selectedDa
                   </Typography>
                   <Grid item>
                     <Typography className={classes.confirmContent}>
-                      Adidas
+                      {selectedInfo.sneakerbrand}
                     </Typography>
                     <Typography className={classes.confirmContent} style={{marginBottom: 30}}>
-                      Yeezy 700 Wave Runner Solid Grey
+                      {selectedInfo.sneakermodel}
                     </Typography>
                   </Grid>
                   <Typography className={classes.confirmTitle}>
@@ -307,7 +309,7 @@ function GetStepContent({activeStep, handleNext, classes, nextButton, selectedDa
                   </Typography>
                   <Grid item>
                     <Typography className={classes.confirmContent}>
-                      Lundi 22 juin
+                      Lundi 22 juin {selectedDateTime}
                     </Typography>
                     <Typography className={classes.confirmContent}>
                       À 10h00
@@ -450,6 +452,7 @@ const ContactFormComponent = () => {
   };
 
   const [selectedDateTime, setSelectedDateTime] = useState(undefined);
+  const [selectedInfo, setSelectedInfo] = useState({});
 
   const nextButton = activeStep === 0 ? 
     (
@@ -537,7 +540,7 @@ const ContactFormComponent = () => {
       <div className={classes.root}>
           <div>
             <div className={classes.instructions}>
-              <GetStepContent activeStep={activeStep} handleNext={handleNext} classes={classes} nextButton={nextButton} selectedDateTime={selectedDateTime} setSelectedDateTime={setSelectedDateTime} />
+              <GetStepContent selectedInfo={selectedInfo} setSelectedInfo={setSelectedInfo} activeStep={activeStep} handleNext={handleNext} classes={classes} nextButton={nextButton} selectedDateTime={selectedDateTime} setSelectedDateTime={setSelectedDateTime} />
             </div>
             {/* <Typography className={classes.instructions}>
             </Typography> */}
